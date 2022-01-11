@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">DSA MINIMO 2</string>
+    <string name="app_name">Minimo2_ejemplo</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="signIn">Login</string>
+
 </resources>

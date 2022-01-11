@@ -1,0 +1,2 @@
+rootProject.name='Minimo2_ejemplo'
+include ':app'

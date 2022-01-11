@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dsaminimo2">
+    package="edu.upc.eetac.dsa.minimo2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/upc_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/upc_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DSAMINIMO2">
+        android:theme="@style/AppTheme">
+        <activity android:name="edu.upc.eetac.dsa.minimo2.MuseumDetailActivity"></activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="edu.upc.eetac.dsa.minimo2.LoginActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="edu.upc.eetac.dsa.minimo2.MainActivity"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
