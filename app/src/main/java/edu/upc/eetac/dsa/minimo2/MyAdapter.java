@@ -13,58 +13,24 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import edu.upc.eetac.dsa.minimo2.models.Element;
-
+import edu.upc.eetac.dsa.minimo2.models.Repository;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    //Repo List
-    private List<Element> elementList;
-    // Adding Listener to call it from Main Activity
-    private OnItemClickListener mListener;
-    //Through this we get the click and the position to our main activity
-    public interface OnItemClickListener{
-        void onItemClick(int position);
-    }
-    //for When we call the OnClick Method from main
-    public void SetOnItemClickListener(OnItemClickListener listener){
-        mListener = listener ;
-    }
-    // Provide a reference to the views for each data item, Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    private List<Repository> elementList;
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in our viewHolder
-        public TextView adrecaNom;
-        public ImageView bannerImg;
+        public TextView repositoryName;
+        public TextView languaje;
         public View layout;
 
-        public ViewHolder(View itemView, OnItemClickListener listener) {
+        public ViewHolder(View itemView) {
             super(itemView);
             layout = itemView;
-            adrecaNom = itemView.findViewById(R.id.adrecaNom);
-            bannerImg = itemView.findViewById(R.id.banner);
-            //Click Handler for the whole Item
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                        public void onClick(View v){
-                            if( listener !=null){
-                                int position = getAdapterPosition();
-                                if(position != RecyclerView.NO_POSITION){
-                                    listener.onItemClick(position);
-                                }
-                            }
-                        }
-                });
+            repositoryName = itemView.findViewById(R.id.repositoryName);
+            languaje = itemView.findViewById(R.id.languaje);
         }
     }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Element> myDataset)
-    {
-        elementList = myDataset;
-    }
-
-    // Create new views (invoked by the layout manager)
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -72,17 +38,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from( parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
         // set the view's size, margins, padding and layout parameters
-        ViewHolder vh = new ViewHolder(v,mListener);
+        ViewHolder vh = new ViewHolder(v);
         return vh;
     }
-
+    public void setData(List<Repository> myDataSet){
+        elementList=myDataSet;
+        notifyDataSetChanged();
+    }
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
        // final String name = values.get(position);
-        holder.adrecaNom.setText(elementList.get(position).getAdrecaNom());
-        Picasso.get().load(elementList.get(position).getImatge().get(0)).into(holder.bannerImg);
+        holder.repositoryName.setText(elementList.get(position).getName());
+        holder.languaje.setText(elementList.get(position).getLanguage());
     }
 
     @Override

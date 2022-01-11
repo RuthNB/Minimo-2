@@ -14,12 +14,8 @@
         android:roundIcon="@drawable/upc_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.upc.eetac.dsa.minimo2.MuseumDetailActivity"></activity>
         <activity
-            android:name="edu.upc.eetac.dsa.minimo2.LoginActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="edu.upc.eetac.dsa.minimo2.MainActivity"
+            android:name=".FindUser"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>

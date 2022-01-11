@@ -13,21 +13,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="TODO"
-            android:src="@mipmap/ic_launcher" />
-
         <TextView
-            android:id="@+id/adrecaNom"
+            android:id="@+id/repositoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:backgroundTint="#2196F3"
-            android:text="Museum bla bla bla blabla bla bla blabla bla bla blabla bla bla blav"
+            android:text="name"
             android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/languaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="languaje" />
     </LinearLayout>
 </RelativeLayout>
